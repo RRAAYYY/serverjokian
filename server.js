@@ -8,7 +8,7 @@ const session = require("express-session");
 const bcrypt = require("bcryptjs");
 
 const app = express();
-const PORT = 8080;
+const PORT = 3000;
 
 const KEYS_PATH = path.join(__dirname, "apikeys.json");
 const ADMINS_PATH = path.join(__dirname, "admins.json");
@@ -555,6 +555,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log("Auth server running at http://localhost:" + PORT);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
+
